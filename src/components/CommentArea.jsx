@@ -31,8 +31,8 @@ const CommentArea = (props) => {
         setIsError(false);
       } else {
         console.log("error");
-        setIsLoading({ isLoading: false });
-        setIsError({ isError: true });
+        setIsLoading(false);
+        setIsError(true);
       }
     } catch (error) {
       setIsLoading(false);
@@ -40,6 +40,7 @@ const CommentArea = (props) => {
     }
   };
   useEffect(() => {
+    setIsLoading(true);
     fetchComments();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.asin]);
